@@ -11,11 +11,6 @@ public class FireController : MonoBehaviour {
     private float shotCounters;
     public Transform firePoint;
     public PlayerController player;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -26,8 +21,7 @@ public class FireController : MonoBehaviour {
             {
                 shotCounters = timeBetweenShots;
                 BulletController newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation) as BulletController;
-                newBullet.bulletSpeed = bulletSpeed + Mathf.Sqrt(Mathf.Pow(player.body.velocity.x < 0 ? 0 : player.body.velocity.x, 2) + 
-                                                                 Mathf.Pow(player.body.velocity.y < 0 ? 0 : player.body.velocity.y, 2));
+                newBullet.bulletSpeed = bulletSpeed;
             }
         }
         else

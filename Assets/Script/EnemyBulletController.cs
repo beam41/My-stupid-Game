@@ -2,23 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletController : MonoBehaviour {
+public class EnemyBulletController : MonoBehaviour {
 
     public float bulletSpeed;
-    public PlayerController player;
+    public EnemyController enemy;
     private Rigidbody2D body;
-    private Rigidbody2D playerBody;
+    private Rigidbody2D enemyBody;
 
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        player = FindObjectOfType<PlayerController>();
-        playerBody = player.GetComponent<Rigidbody2D>();
-        body.velocity = playerBody.velocity;
+        enemy = FindObjectOfType<EnemyController>();
+        enemyBody = enemy.GetComponent<Rigidbody2D>();
+        body.velocity = enemyBody.velocity;
     }
 
     // Update is called once per frame
-    void FixedUpdate () {
+    void FixedUpdate()
+    {
         transform.Translate(Vector3.up * bulletSpeed * Time.deltaTime);
     }
 }

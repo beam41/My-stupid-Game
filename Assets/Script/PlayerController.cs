@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour {
     public float moveSpeed;
     public FireController fire;
 
+    private Vector3 mousePosition;
+    private Quaternion rotation;
+
     // Use this for initialization
     void Start () {
         body = GetComponent<Rigidbody2D>();
@@ -26,12 +29,11 @@ public class PlayerController : MonoBehaviour {
         }
     }
     void FixedUpdate () {
-
         body.velocity = new Vector2(Mathf.Lerp(0, Input.GetAxis("Horizontal") * moveSpeed, 0.8f),
                                     Mathf.Lerp(0, Input.GetAxis("Vertical") * moveSpeed, 0.8f));
 
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Quaternion rotation = Quaternion.LookRotation(transform.position - mousePosition, Vector3.forward);
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        rotation = Quaternion.LookRotation(transform.position - mousePosition, Vector3.forward);
         transform.rotation = rotation;
         transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
         body.angularVelocity = 0;
