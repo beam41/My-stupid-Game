@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHealthController : MonoBehaviour {
 
     public int health;
+    public GameObject endMenu;
 
     // Update is called once per frame
     void Update()
@@ -12,7 +13,8 @@ public class PlayerHealthController : MonoBehaviour {
 
         if (health <= 0)
         {
-            
+            endMenu.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 

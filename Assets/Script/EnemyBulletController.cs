@@ -6,7 +6,6 @@ public class EnemyBulletController : MonoBehaviour {
 
     public float bulletSpeed;
     public EnemyController enemy;
-    public int damageToGive;
     private Rigidbody2D body;
     private Rigidbody2D enemyBody;
 
@@ -29,7 +28,7 @@ public class EnemyBulletController : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerHealthController>().Hurt(damageToGive);
+            collision.gameObject.GetComponent<PlayerHealthController>().Hurt(1);
             Destroy(gameObject);
         }
     }

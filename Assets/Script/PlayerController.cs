@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour {
                                     Mathf.Lerp(0, Input.GetAxis("Vertical") * moveSpeed, 0.8f));
 
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition = new Vector3(mousePosition.x, mousePosition.y, -100);
         rotation = Quaternion.LookRotation(transform.position - mousePosition, Vector3.forward);
         transform.rotation = rotation;
         transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);

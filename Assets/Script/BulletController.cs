@@ -13,7 +13,7 @@ public class BulletController : MonoBehaviour {
 
     void Start()
     {
-        Destroy(gameObject, 4);
+        Destroy(gameObject, 10);
         body = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<PlayerController>();
         playerBody = player.GetComponent<Rigidbody2D>();
@@ -34,5 +34,10 @@ public class BulletController : MonoBehaviour {
             collision.GetComponent<Rigidbody2D>().AddForce(transform.up * bulletForce * collision.GetComponent<EnemyController>().moveSpeed/2);
             Destroy(gameObject);
         }
+    }
+
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }

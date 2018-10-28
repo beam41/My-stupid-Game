@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour {
     private float x;
     private float y;
     public EnemyController enemy;
+    private bool forceSpawn;
 
     // Use this for initialization
     void Start () {
@@ -21,14 +22,32 @@ public class EnemySpawner : MonoBehaviour {
         spawnDelayer -= Time.deltaTime;
         if (spawnDelayer <= 0)
         {
-            x = Random.Range(-0.1f, 1.1f);
-            y = Random.Range(-0.1f, 1.1f);
-            if ((0 > x || x > 1) && (0 > y || y > 1))
+            if (Spawn())
             {
-                spawnPoint = Camera.main.ViewportToWorldPoint(new Vector3(x, y, 10.0f));
-                EnemyController newEnemy = Instantiate(enemy, spawnPoint, Quaternion.identity) as EnemyController;
                 spawnDelayer = spawnDelay;
             }
         }
+        if (forceSpawn)
+        {
+            forceSpawn = !Spawn();
+        }
+    }
+
+    public void ForcedSpawner()
+    {
+        forceSpawn = true;
+    }
+
+    private bool Spawn()
+    {
+        x = Random.Range(-0.1f, 1.1f);
+        y = Random.Range(-0.1f, 1.1f);
+        if ((0 > x || x > 1) && (0 > y || y > 1))
+        {
+            spawnPoint = Camera.main.ViewportToWorldPoint(new Vector3(x, y, 10.0f));
+            Instantiate(enemy, spawnPoint, Quaternion.identity);
+            return true;
+        }
+        return false;
     }
 }
