@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
 
@@ -9,6 +7,7 @@ public class EnemyController : MonoBehaviour {
     public float moveSpeed;
     public float rotateSpeed;
     public Transform player;
+    public float lifetime;
 
     private Vector3 playerPosition;
     private Quaternion rotation;
@@ -18,6 +17,7 @@ public class EnemyController : MonoBehaviour {
     void Start () {
         enemyBody = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<PlayerController>().transform;
+        Destroy(gameObject, lifetime);
 	}
 	
 	// Update is called once per frame
@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour {
         selfToPlayer = transform.position - player.position;
         if (selfToPlayer.sqrMagnitude <= 300)
         {
-            playerPosition = new Vector3(player.position.x, player.position.y, -10);
+            playerPosition = new Vector3(player.position.x, player.position.y, -100);
             rotation = Quaternion.LookRotation(transform.position - playerPosition, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotateSpeed);
             transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);

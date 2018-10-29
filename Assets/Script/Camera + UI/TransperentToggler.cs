@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class TransperentToggler : MonoBehaviour {
 
-    public CameraFollow cam;
     private Image panel;
     private Color c;
 
@@ -25,7 +22,7 @@ public class TransperentToggler : MonoBehaviour {
         }
         else
         {
-            cam.enabled = false;
+            FindObjectOfType<CameraFollow>().enabled = false;
             enabled = false;
         }
 	}

@@ -264,6 +264,7 @@ MonoBehaviour:
   moveSpeed: 2
   rotateSpeed: 0.5
   player: {fileID: 0}
+  lifetime: 20
 --- !u!212 &212161917194899498
 SpriteRenderer:
   m_ObjectHideFlags: 1

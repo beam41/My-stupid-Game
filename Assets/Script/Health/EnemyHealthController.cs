@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyHealthController : MonoBehaviour {
 
@@ -11,7 +9,7 @@ public class EnemyHealthController : MonoBehaviour {
 		
         if (health <= 0)
         {
-            FindObjectOfType<EnemySpawner>().ForcedSpawner();
+            FindObjectOfType<EnemySpawner>().Spawn();
             FindObjectOfType<PlayerController>().GetComponent<Score>().AddScore(10);
             Destroy(gameObject);
         }

@@ -716,7 +716,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a976201557a623d4485ac19ab2548fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 519420030}
 --- !u!114 &2008530534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -877,7 +876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6897dfda5df9b2f498bdfdbf907d3452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 5
   endMenu: {fileID: 1728751290}
 --- !u!60 &2126394209
 PolygonCollider2D:

@@ -1,16 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
 
     public float spawnDelay;
     private float spawnDelayer;
+    private float a;
+    private float b;
     private Vector3 spawnPoint;
-    private float x;
-    private float y;
+    private float[] spawner = { -0.1f, 1.1f };
     public EnemyController enemy;
-    private bool forceSpawn;
 
     // Use this for initialization
     void Start () {
@@ -22,32 +20,14 @@ public class EnemySpawner : MonoBehaviour {
         spawnDelayer -= Time.deltaTime;
         if (spawnDelayer <= 0)
         {
-            if (Spawn())
-            {
-                spawnDelayer = spawnDelay;
-            }
-        }
-        if (forceSpawn)
-        {
-            forceSpawn = !Spawn();
+            Spawn();
+            spawnDelayer = spawnDelay;
         }
     }
 
-    public void ForcedSpawner()
+    public void Spawn()
     {
-        forceSpawn = true;
-    }
-
-    private bool Spawn()
-    {
-        x = Random.Range(-0.1f, 1.1f);
-        y = Random.Range(-0.1f, 1.1f);
-        if ((0 > x || x > 1) && (0 > y || y > 1))
-        {
-            spawnPoint = Camera.main.ViewportToWorldPoint(new Vector3(x, y, 10.0f));
-            Instantiate(enemy, spawnPoint, Quaternion.identity);
-            return true;
-        }
-        return false;
+        spawnPoint = Camera.main.ViewportToWorldPoint(new Vector3(spawner[Random.Range(0, 2)], spawner[Random.Range(0, 2)], 10.0f));
+        Instantiate(enemy, spawnPoint, Quaternion.identity);
     }
 }

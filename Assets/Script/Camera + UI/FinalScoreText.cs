@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class FinalScoreText : MonoBehaviour {
@@ -10,6 +8,5 @@ public class FinalScoreText : MonoBehaviour {
 
 	void Start () {
         textScore.text = string.Format("Score: {0}", playerScore.score);
-
     }
 }

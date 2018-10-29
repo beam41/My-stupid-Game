@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BulletController : MonoBehaviour {
 
@@ -38,6 +36,6 @@ public class BulletController : MonoBehaviour {
 
     void OnBecameInvisible()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, 1);
     }
 }
