@@ -7,8 +7,9 @@ public class EnemySpawner : MonoBehaviour {
     private float a;
     private float b;
     private Vector3 spawnPoint;
-    private float[] spawner = { -0.1f, 1.1f };
+    private readonly float[] spawner = { -0.1f, 1.1f };
     public EnemyController enemy;
+    public Score score;
 
     // Use this for initialization
     void Start () {
@@ -21,7 +22,7 @@ public class EnemySpawner : MonoBehaviour {
         if (spawnDelayer <= 0)
         {
             Spawn();
-            spawnDelayer = spawnDelay;
+            spawnDelayer = spawnDelay - Mathf.Log10(score.score + 1);
         }
     }
 

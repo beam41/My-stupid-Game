@@ -9,7 +9,7 @@ public class EnemyBulletController : MonoBehaviour {
 
     void Start()
     {
-        Destroy(gameObject, 4);
+        Destroy(gameObject, 2);
         body = GetComponent<Rigidbody2D>();
         enemy = FindObjectOfType<EnemyController>();
         enemyBody = enemy.GetComponent<Rigidbody2D>();

@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 212161917194899498}
   - component: {fileID: 50343058297537538}
   - component: {fileID: 114989558771853632}
+  - component: {fileID: 114096831517424166}
   - component: {fileID: 60043434421612052}
   - component: {fileID: 114970673128969122}
   m_Layer: 0
@@ -220,6 +221,21 @@ PolygonCollider2D:
       - {x: 1.9499999, y: -3.375}
       - {x: 1.99, y: -3.365}
       - {x: 2.05, y: -3.345}
+--- !u!114 &114096831517424166
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1369231503594254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3affe360202a7984991e5be00db82e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exploder: {fileID: 114198963836404504, guid: 4b368c1d6f12e15418f8ea8b0ada59fa, type: 2}
+  explodedSpeed: 0.3
+  explodedTime: 0.1
+  forceSize: 0
 --- !u!114 &114275872032769244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -232,7 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 114407469093775808, guid: c91a1f1896a6b5442b18ad41d724f43e, type: 2}
-  bulletSpeed: 10
+  bulletSpeed: 8
   timeBetweenShots: 1
   firePoint: {fileID: 4582087799061970}
   enemy: {fileID: 114989558771853632}
@@ -265,6 +281,8 @@ MonoBehaviour:
   rotateSpeed: 0.5
   player: {fileID: 0}
   lifetime: 20
+  enemyFlashTime: 0.1
+  flashColor: {r: 1, g: 1, b: 0, a: 1}
 --- !u!212 &212161917194899498
 SpriteRenderer:
   m_ObjectHideFlags: 1

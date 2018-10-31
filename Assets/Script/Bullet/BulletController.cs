@@ -26,7 +26,7 @@ public class BulletController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.GetComponent<EnemyHealthController>().Hurt(damageToGive);
             collision.GetComponent<Rigidbody2D>().AddForce(transform.up * bulletForce * collision.GetComponent<EnemyController>().moveSpeed/2);
@@ -36,6 +36,6 @@ public class BulletController : MonoBehaviour {
 
     void OnBecameInvisible()
     {
-        Destroy(gameObject, 1);
+        Destroy(gameObject,0.1f);
     }
 }

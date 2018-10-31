@@ -17,7 +17,7 @@ public class TransperentToggler : MonoBehaviour {
 	void Update () {
         if (c.a < 0.79)
         {
-            c.a = Mathf.Lerp(c.a, 0.8f, 0.5f);
+            c.a = Mathf.Lerp(c.a, 0.8f, 0.1f);
             panel.color = c;
         }
         else

@@ -8,6 +8,6 @@ public class ScoreUpdater : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        textScore.text = playerScore.score.ToString();
+        textScore.text = string.Format("Score:\n{0}", playerScore.score);
 	}
 }

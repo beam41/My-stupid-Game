@@ -12,6 +12,7 @@ public class PlayerHealthController : MonoBehaviour {
         if (health <= 0)
         {
             endMenu.SetActive(true);
+            gameObject.GetComponent<ExplodeGenerator>().ForceBombGenerator();
             Time.timeScale = 0;
         }
     }

@@ -10,6 +10,7 @@ public class ExplodeEffectController : MonoBehaviour {
     void Start () {
         increser = new Vector3(explodedSpeed, explodedSpeed, 0);
     }
+
     // Update is called once per frame
     void FixedUpdate () {
 		if (explodedTime > 0)
@@ -22,4 +23,9 @@ public class ExplodeEffectController : MonoBehaviour {
             Destroy(gameObject);
         }
 	}
+
+    public void ForceBombed(float size)
+    {
+        transform.localScale = new Vector3(size, size, 0);
+    }
 }
