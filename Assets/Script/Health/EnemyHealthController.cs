@@ -10,7 +10,7 @@ public class EnemyHealthController : MonoBehaviour {
         if (health <= 0)
         {
             FindObjectOfType<EnemySpawner>().Spawn();
-            FindObjectOfType<PlayerController>().GetComponent<Score>().AddScore(10);
+            FindObjectOfType<Score>().AddScore(10);
             Destroy(gameObject);
         }
 	}

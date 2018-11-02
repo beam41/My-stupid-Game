@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     public float screenFlashTime;
     public float flashIntensity;
     public Camera cam;
+    public GameObject pause;
 
     private Vector3 mousePosition;
     private Quaternion rotation;
@@ -28,13 +29,24 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetMouseButtonDown(0))
+        if (!pause.activeInHierarchy)
         {
-            fire.isFiring = true;
+            if (Input.GetButtonDown("Fire1"))
+            {
+                fire.isFiring = true;
+            }
+            if (Input.GetButtonUp("Fire1"))
+            {
+                fire.isFiring = false;
+            }
         }
-        if (Input.GetMouseButtonUp(0))
+        else
         {
             fire.isFiring = false;
+        }
+        if (Input.GetButtonDown("Cancel"))
+        {
+            pause.SetActive(true);
         }
         if (flashingTime >= 0)
         {

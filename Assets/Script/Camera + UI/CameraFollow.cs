@@ -12,6 +12,7 @@ public class CameraFollow : MonoBehaviour {
     // Use this for initialization
     private void Start()
     {
+        Time.timeScale = 1; // when game restart
         m_OffsetZ = (transform.position - target.position).z;
         transform.parent = null;
     }

@@ -3,18 +3,13 @@
 public class EnemySpawner : MonoBehaviour {
 
     public float spawnDelay;
-    private float spawnDelayer;
+    private float spawnDelayer = 0;
     private float a;
     private float b;
     private Vector3 spawnPoint;
     private readonly float[] spawner = { -0.1f, 1.1f };
     public EnemyController enemy;
     public Score score;
-
-    // Use this for initialization
-    void Start () {
-        spawnDelayer = 0;
-	}
 	
 	// Update is called once per frame
 	void Update () {

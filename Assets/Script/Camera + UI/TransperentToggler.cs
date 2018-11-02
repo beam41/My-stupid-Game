@@ -22,7 +22,6 @@ public class TransperentToggler : MonoBehaviour {
         }
         else
         {
-            FindObjectOfType<CameraFollow>().enabled = false;
             enabled = false;
         }
 	}

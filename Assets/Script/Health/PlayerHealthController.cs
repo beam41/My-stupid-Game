@@ -14,6 +14,8 @@ public class PlayerHealthController : MonoBehaviour {
             endMenu.SetActive(true);
             gameObject.GetComponent<ExplodeGenerator>().ForceBombGenerator();
             Time.timeScale = 0;
+            FindObjectOfType<CameraFollow>().enabled = false;
+            enabled = false;
         }
     }
 

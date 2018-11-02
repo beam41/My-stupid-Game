@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExplodeGenerator : MonoBehaviour {
 
@@ -8,12 +9,7 @@ public class ExplodeGenerator : MonoBehaviour {
     public float explodedSpeed;
     public float explodedTime;
     public float forceSize;
-    private bool does;
-
-    void Start()
-    {
-        does = true;
-    }
+    public bool does = true;
 
     void OnApplicationQuit()
     {
